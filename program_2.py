@@ -1,3 +1,8 @@
+#Program Written By: Ainsley Bellamy
+#Date Written: 02/14/2025
+#Program Title: Total_Tickets
+
+
 # Program #2: Movie Tix
 # Write a program that has the user input various movie names and how many 
 # tickets are desired for each movie.  
