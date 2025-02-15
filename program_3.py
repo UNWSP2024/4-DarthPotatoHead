@@ -21,17 +21,39 @@ def main():
         years = int(input("~Error~ Please enter a valid number of years (whole number): "))
 #Accumulator variable.
     rainfall = 0
+#Dictionary with list values to hold number of inches for each month.
+    months = {
+        "January": [],
+        "February": [],
+        "March": [],
+        "April": [],
+        "May": [],
+        "June": [],
+        "July": [],
+        "August": [],
+        "September": [],
+        "October": [],
+        "November": [],
+        "December": []
+    }
+#Another list to loop through.
+    months_to_loop = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 #Loop through the years and months, adding up the rainfall.
     for year in range(years):
-        for month in range(1,13):
+        for month in months_to_loop:
             inches = float(input(f"Enter inches of rainfall for month #{month}(year #{year + 1}): "))
+#Rainfall variable increases each time.
             rainfall += inches
+#Add the inches value to its key in the dictionary.
+            months[month].append(inches)
 #Print results in table format.
-    print("\nMonths\t\tTotalInches\t\tAverage\n------------------------------------")
-#Calculate average.
-    average = rainfall / (years * 12)
-#Now print values.
-    print(f"{years * month}\t{rainfall:^25.2f}\t{average:.2f}")
+    print("\nMonth\t\t\t\t\t\tAveragePerMonth\t\t\t\t\t\t\n-------------------------------------------")
+#Loop to get each key from dictionary.
+    for key, values in months.items():
+        average = sum(values) / years
+        print(f"{key:<20}\t\t{average:^20.2f}")
+#Only print total rainfall once because it doesn't change.
+    print(f"\nTotal Rainfall: {rainfall}")
 
 if __name__ == '__main__':
     main()
